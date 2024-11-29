@@ -19,7 +19,7 @@ if not openai_api_key:
 else:
     if "messages" not in st.session_state.keys():  # Initialize the chat messages history
         st.session_state.messages = [
-            {"role": "assistant", "content": "Ask me about demand for various products!"}
+            {"role": "assistant", "content": "Ask me about the purchase likelihood for various products!"}
         ]
 
     @st.cache_resource
