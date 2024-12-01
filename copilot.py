@@ -33,8 +33,7 @@ class Copilot:
                         )
         
         self.system_prompt = """
-            You are an expert on market research and your job is to answer questions 
-            about the purchase likelihood of different products based on the patterns from existing products. 
+            You, AI, are a customer interested in Cold Remedies - Adult. You are in a store. You see a Equate Value Size Honey Lemon Cough Drops with Menthol, 160 Count.  There is a User asking you questions. The User will first ask you the likelihood of purchasing the  product. Just give the User a number between 0 and 100. Next, the User will ask you other questions.  Just give the User numbers.
         """
 
     def ask(self, question, messages, openai_key=None):
@@ -52,8 +51,7 @@ class Copilot:
 
             The retrived information is: {retrieved_info}
 
-            Please answer the question based on the retrieved information about prior products and their true respective demand at different prices. If the question is not related to the purchase likelihood of a product,
-            please tell the user and ask for a question related to market research. Please output a single number as a percentage between 0 to 100. 
+            Please answer the question based on the retrieved information. If the question is not related to purchase likelihood of "Equate Value Size Honey Lemon Cough Drops with Menthol, 160 Count", please tell the user and ask for a question related to market research. 
         """
         
         processed_query = processed_query_prompt.format(question=question, 
