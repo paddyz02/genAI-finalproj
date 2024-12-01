@@ -51,7 +51,7 @@ class Copilot:
 
             The retrived information is: {retrieved_info}
 
-            Please answer the question based on the retrieved information. If the question is not related to purchase likelihood of "Equate Value Size Honey Lemon Cough Drops with Menthol, 160 Count", please tell the user and ask for a question related to market research. 
+            Please answer the question based on the retrieved information. If the question is not related to purchase likelihood of Equate Value Size Honey Lemon Cough Drops with Menthol, 160 Count, please tell the user and ask for a question related to market research. 
         """
         
         processed_query = processed_query_prompt.format(question=question, 
