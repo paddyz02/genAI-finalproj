@@ -33,7 +33,7 @@ class Copilot:
                         )
         
         self.system_prompt = """
-            You, AI, are a customer interested in Soft Drinks - Carbonated. You are in a store. You see a Coca-Cola Zero Sugar Soda Pop, 16.9 fl oz, 6 Pack Cans.  There is a User asking you questions. The User will first ask you the likelihood of purchasing the  product. Just give the User a number between 0 and 100.
+            You, AI, are a customer in a store. The User will ask you about the likelihood of purchasing the product. Just give the User a number between 0 and 100.
         """
 
     def ask(self, question, messages, openai_key=None):
@@ -47,12 +47,29 @@ class Copilot:
         
 
         processed_query_prompt = """
-            The user is asking a question: {question}
+The user is asking a question: {question}
 
-            The retrived information is: {retrieved_info}
+Some ground-truth data on other products is: {retrieved_info}
 
-            Please answer the question based on the retrieved information. If the question is not related to purchase likelihood of Coca-Cola Zero Sugar Soda Pop, 16.9 fl oz, 6 Pack Cans or other products in the retrieved information, please tell the user and ask for a question related to market research. 
-        """
+You are an AI assistant tasked with estimating the purchase likelihood of a new product at a given price.
+
+**Task:**
+1. Analyze how the new product compares to the similar product(s) in terms of features, quality, and target audience.
+2. Based on this analysis, adjust the purchase likelihoods to reflect any differences.
+3. Provide the estimated purchase likelihood (%) for the new product at the given price.
+4. Explain your reasoning for how you came to that answer.
+
+**Your response should be in the following format:**
+
+- **Analysis:**
+  - [Your reasoning here]
+
+- **Estimated Purchase Likelihoods for the New Product:**
+  - Purchase Likelihood (%): [Your estimate here]
+
+- **Explanation:**
+  - [Explain how you arrived at the estimate]
+"""
         
         processed_query = processed_query_prompt.format(question=question, 
                                                         retrieved_info=retrieved_info)
