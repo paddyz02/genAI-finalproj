@@ -51,7 +51,7 @@ class Copilot:
 
             The retrived information is: {retrieved_info}
 
-            Please answer the question based on the retrieved information. If the question is not related to purchase likelihood of Coca-Cola Zero Sugar Soda Pop, 16.9 fl oz, 6 Pack Cans, please tell the user and ask for a question related to market research. 
+            Please answer the question based on the retrieved information. If the question is not related to purchase likelihood of Coca-Cola Zero Sugar Soda Pop, 16.9 fl oz, 6 Pack Cans or other products in the retrieved information, please tell the user and ask for a question related to market research. 
         """
         
         processed_query = processed_query_prompt.format(question=question, 
